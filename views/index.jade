@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html;charset=utf-8')
+    title #{title}
+    style.
+      html,body{
+      font-size: 20px;
+      font-family: 'Microsoft Yahei',Tahoma,Verdana,simsun,sans-serif;
+      }
+      table {width: 85%;margin: 30px auto;}
+  body
+    table#table(border='1')
+      caption 姓名大全
+      thead
+        tr
+          th 姓名
+          th 姓名
+          th 姓名
+          th 姓名
+          th 姓名
+      tbody
+          each name in names
+            td= name
+    script(src='http://code.jquery.com/jquery-1.11.0.min.js')
+    script(src='/javascripts/name.js')
+
