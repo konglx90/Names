@@ -43,3 +43,10 @@ json => 43.1MB
     - 圆饼图/树状图50个字词 => 前五大姓氏及其他
     - 圆饼图/树状图50个字词 => 名里出现最多的5个字及其他， 最多的5个词及其他
     - 待定 => 用结巴分词对名做分词， 分析出现最多的前50个有意义词
+
+4. [SVG与Canvas](http://wiki.jikexueyuan.com/project/d3wiki/makechart.html)
+
+5. 浏览器同步 静态调试 `grunt` + `browserSync`
+
+
+    browser-sync start --server --files "doc/css/*.css, doc/d3_demo/*.html"
