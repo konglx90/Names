@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>比例尺</title>
+</head>
+<body>
+
+<script src="../../public/bower_components/d3/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var dataset = [1.2, 2.3, 0.9, 1.5, 3.3];
+    var min = d3.min(dataset),
+            max = d3.max(dataset);
+    var linear = d3.scale.linear()  // 线性比例尺
+            .domain([min, max])
+            .range([0, 300]);
+    linear(0.9);    //返回 0
+    linear(2.3);    //返回 175
+    linear(3.3);    //返回 300
+
+    var index = [0, 1, 2, 3, 4],
+            color = ["red", "blue", "green", "yellow", "black"];
+    var ordinal = d3.scale.ordinal()            //离散比例尺
+        .domain(index)
+        .range(color);
+
+    ordinal(0); //返回 red
+    ordinal(2); //返回 green
+    ordinal(4); //返回 black
+
+    var rectHeight = 25;   //每个矩形所占的像素高度(包括空白)
+
+    var svg = d3.select("body")     //选择文档中的body元素
+            .append("svg")          //添加一个svg元素
+            .attr("width", 300)       //设定宽度
+            .attr("height", 300);    //设定高度
+
+    svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("x",20)
+        .attr("y",function(d,i){
+             return i * rectHeight;
+        })
+        .attr("width",function(d){
+             return linear(d);   //在这里用比例尺
+        })
+        .attr("height",rectHeight-2)
+        .attr("fill","steelblue");
+
+</script>
+</body>
+</html>

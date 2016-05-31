@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>坐标轴</title>
+    <link rel="stylesheet" type="text/css" href="../../public/stylesheets/svg.css">
+</head>
+<body>
+
+<script src="../../public/bower_components/d3/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    //数据
+    var dataset = [48, 86260, 1084128, 8080];
+    //定义比例尺
+    var linear = d3.scale.linear()
+            .domain([0, d3.max(dataset)])
+            .range([1, 900]);
+
+    var axis = d3.svg.axis()
+            .scale(linear)      //指定比例尺
+            .orient("bottom")   //指定刻度的方向
+            .ticks(7);          //指定刻度的数量
+
+    var svg = d3.select("body")     //选择文档中的body元素
+            .append("svg")          //添加一个svg元素
+            .attr("width", 900)       //设定宽度
+            .attr("height", 900);    //设定高度
+
+    svg.append('g')
+            .attr("class","axis")
+            .attr("transform","translate(20,130)")
+            .call(axis);
+</script>
+</body>
+</html>
