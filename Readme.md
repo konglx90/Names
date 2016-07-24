@@ -13,7 +13,7 @@ json => 43.1MB
 
 ### 技术栈
 
-`node` + `express` + `grunt` + `jade`
+`node` + `express` + `grunt` + `jade` + `D3.js`
 
 ### 项目启动`DEBUG=name ./bin/www`
 

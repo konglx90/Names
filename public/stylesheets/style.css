@@ -216,3 +216,17 @@ button {
     stroke: none;
     fill: steelblue;
 }
+
+.container {
+    margin: 30px auto;
+    width: 600px;
+    height: 300px;
+    border: 1px solid #000;
+}
+
+polyline {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 2px;
+    stroke-dasharray: 5px;
+}
