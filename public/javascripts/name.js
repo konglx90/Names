@@ -5,8 +5,7 @@ $(function () {
 
     var count_words,
         count_words_items,
-        famliy_words,
-        famliy_words_items;
+        famliy_words;
 
     // 将名字渲染到浏览器上
     var drawName = function (start, end) {
@@ -67,12 +66,12 @@ $(function () {
     }
 
     // 圆饼图
-    function drawFamilyName(item, data) {
+    function drawFamilyName(data) {
 
-        var datas = [];
-        for(var i=0; i<item.length; i++){
-            datas[i] = {'name': item[i], 'value': data[i]};
-        }
+        var datas = data;
+        // 改变文字标识的x坐标
+        var txt_transform = [0.9, 1.2, 1.5, 1.8, 2.2, 2.5];
+        var line_transform = [0.9, 1.2, 1.5, 1.8, 2.2, 2.5];
 
         function render(dataset) {
 
@@ -134,7 +133,7 @@ $(function () {
                     // 找出外弧形的中心点
                     var pos = outerArc.centroid(d);
                     // 改变文字标识的x坐标
-                    pos[0] = radius * (midAngel(d) < Math.PI ? 1.5 : -1.5);
+                    pos[0] = radius * (midAngel(d) < Math.PI ? txt_transform.pop() : -txt_transform.pop());
 
                     return 'translate(' + pos + ')';
                 })
@@ -149,7 +148,7 @@ $(function () {
                 })
                 .attr('points', function (d) {
                     var pos = outerArc.centroid(d);
-                    pos[0] = radius * (midAngel(d) < Math.PI ? 1.5 : -1.5);
+                    pos[0] = radius * (midAngel(d) < Math.PI ? line_transform.pop() : -line_transform.pop());
                     return [oArc.centroid(d), outerArc.centroid(d), pos];
                 })
                 .style('opacity', 0.5);
@@ -176,9 +175,9 @@ $(function () {
 
     count_words = $('#count-words').data('count-words');
     count_words_items = ["一字名", "两字名", "三字名", "四字名"];
-    famliy_words = $('#count-family-name').data('family-name');
+    famliy_words = $('#count-family-names').data('family-name');
     drawCountWords(count_words_items, count_words);
-    drawFamilyName(count_words_items, famliy_words);
+    drawFamilyName(famliy_words);
 
 
 });

@@ -52,10 +52,10 @@ function sort(elements, limits){
     elements[i] = elements[0];
     elements[0] = swap;
 
-      limits--;
-      if(limits == 0){
-        return;
-      }
+    if(limits == 0){
+      return;
+    }
+    limits--;
 
     //进行调整，将最大）元素调整至堆顶
     headAdjust(elements, 0, i);
