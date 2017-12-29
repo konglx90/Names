@@ -1,4 +1,4 @@
-# Name 名字大追踪， 练习js/css, 前端画图
+## 名字大追踪-数据可视化练习
 
 2594179 个`人名`， 文件
 csv => 26.8MB
@@ -23,20 +23,28 @@ json => 43.1MB
 
 2. 一齐展示2594179个人名用字符串计算时间太长
 
-    [JavaScript 怎样高效拼接字符串？](https://www.zhihu.com/question/19747496)
-    
+`[JavaScript 怎样高效拼接字符串？](https://www.zhihu.com/question/19747496)`
+
 之前用的是字符串拼接的方法， 没改了`除了缓存length, 其他都不需要改, 浏览器会对字符串拼接做性能优化, 除了ie`
-    
-        for (var i = 0, _l = 1000; i < _l; i=i+5) {
-            html += '<tr><td>' + data[i] + '</td><td>' + data[i+1]  + '</td><td>' + data[i+2] + '</td><td>' + data[i+3] + '</td><td>' + data[i+4] + '</td></tr>';
-        }
-  
+
+```
+for (var i = 0, _l = 1000; i < _l; i=i+5) {
+    html += '<tr><td>' + data[i] + '</td><td>' + data[i+1]  + '</td><td>' + data[i+2] + '</td><td>' + data[i+3] + '</td><td>' + data[i+4] + '</td></tr>';
+}
+```
+
+
 2. 效率计算工具`console.time`和`console.timeEnd`
-        
-        console.time("addString");
-        xxx
-        console.timeEnd("addString");
-        
+
+```
+console.time("addString");
+
+/*code here*/
+...
+
+console.timeEnd("addString");
+```
+
 3. 准备计算
 
     - 列表  => 一个字、两个字、三个字、四个字
@@ -49,4 +57,4 @@ json => 43.1MB
 5. 浏览器同步 静态调试 `grunt` + `browserSync`
 
 
-    browser-sync start --server --files "doc/css/*.css, doc/d3_demo/*.html"
+`browser-sync start --server --files "doc/css/*.css, doc/d3_demo/*.html"`
